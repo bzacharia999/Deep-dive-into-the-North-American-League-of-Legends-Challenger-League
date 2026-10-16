@@ -20,8 +20,8 @@ REGION = "americas"     # match-v5, account-v1
 QUEUE = "RANKED_SOLO_5x5"
 QUEUE_ID = 420
 
-TOP_N = 100             # players
-MATCHES_PER_PLAYER = 10  # max 100 per match-ids request; each match costs 1 extra request
+TOP_N = 500             # players
+MATCHES_PER_PLAYER = 100  # max 100 per match-ids request; each match costs 1 extra request
 
 # Rate limits for a development key: (max_calls, window_seconds)
 RATE_LIMITS = ((20, 1), (100, 120))
