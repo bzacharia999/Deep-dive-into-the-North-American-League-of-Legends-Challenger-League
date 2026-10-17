@@ -18,6 +18,7 @@ description: >-
 6. **Use `logging`, not `print`**, in `src/` modules.
 7. **Cache raw API responses** to disk so reruns don't re-spend rate limit.
 8. **PEP 8** naming (`snake_case` functions, `PascalCase` classes); format with `black`/`ruff`.
+9. **Inspect environment and console first** – look at the current environment and prints to the console before suggesting any console log checks.
 
 ## Suggested Layout
 ```text
@@ -167,3 +168,7 @@ A single bad player must never kill a long collection run; record failures and r
 - `git status` never shows `.env`.
 - Re-running collection uses cached files (near-instant, no new API calls).
 - Logs show no repeated 429s.
+
+## Environment & Console Inspection
+- **Inspect current environment and console output first**: Look at the current environment (env variables, process state, configuration) and existing prints to the console before suggesting any console log checks or asking the user to inspect console logs.
+- **Avoid speculative or redundant log checks**: Do not ask to check console logs or suggest adding debug print/log statements if the required information is already available in the environment or active console output.
