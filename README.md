@@ -40,7 +40,7 @@ Study-of-NA-s-top-100-LoL-players/
 │       └── player_matches.csv     # Match-level participant dataset (30,000 observations)
 ├── notebooks/
 │   ├── 01_data_collection.ipynb   # API ingestion, rate limiting, and raw-to-processed ETL
-│   ├── 02_eda.ipynb               # Exploratory data analysis, distributions, and hypothesis tests
+│   ├── 02_eda.ipynb               # Exploratory data analysis into the different factors of a match
 │   └── 03_modelling.ipynb         # Feature engineering, CV tuning, modeling, and evaluation
 ├── src/
 │   ├── config.py                  # API endpoints, queue routing, rate limits, and directory paths
