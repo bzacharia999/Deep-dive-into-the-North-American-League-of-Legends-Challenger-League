@@ -63,8 +63,6 @@ Implemented in [01_data_collection.ipynb](file:///c:/Users/Ben/Documents/Data%20
   - `match-v5 /matches/{matchId}`: Retrieved detailed telemetry and participant metrics for each match.
 - **Resilience & Rate Limiting**:
   - Implemented a two-tier sliding window rate limiter enforcing Riot's developer limits (20 requests/second and 100 requests/120 seconds).
-  - Exponential backoff on HTTP 429 and 5xx responses.
-  - Local JSON caching in `data/raw/` ensures reruns avoid re-spending API quotas.
 - **Processed Datasets Exported**:
   - `top300_players.csv`: Ladder rank, League Points (LP), wins, losses, win rate, hot streak, and Riot ID.
   - `player_matches.csv`: 30,000 player-match observations containing kills, deaths, assists, damage dealt to champions and objectives, vision scores, gold per minute, CS per minute, turret kills, and remake flags.
