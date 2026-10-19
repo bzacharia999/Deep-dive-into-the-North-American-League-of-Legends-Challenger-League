@@ -20,10 +20,10 @@ This repository serves as a case study analyzing the top Challenger players in N
 
 ## Project Overview
 
-In competitive League of Legends, match outcomes depend on a complex interplay between in-game performance metrics (e.g., gold generation, objective control, champion combat efficiency) and player characteristics (e.g., season win rate, total games played, ladder rank).
+In competitive League of Legends, match outcomes depend on a variety of variables, including in-game performance metrics (e.g., gold generation, objective control, champion combat efficiency) and player characteristics (e.g., season win rate, total games played, ladder rank).
 
 The primary goals of this project are:
-1. **Automated Pipeline**: Build a resilient, rate-limited data extraction pipeline using Riot Games' `league-v4` and `match-v5` APIs.
+1. **ETL Pipeline**: Build a data extraction and transformation pipeline using Riot Games' `league-v4` and `match-v5` APIs.
 2. **Behavioral & Meta Analysis**: Investigate how champion classes (Fighter, Mage, Marksman, Assassin, Tank, Support) perform across varying game durations, whether time of day impacts player win rate, etc.
 3. **Outcome Prediction**: Build and evaluate classification models ([Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html), [Random Forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html), and [XGBoost](https://xgboost.readthedocs.io/)) to predict match wins and analyze what factors are most important to winning/losing.
 
@@ -61,8 +61,6 @@ Implemented in [01_data_collection.ipynb](file:///c:/Users/Ben/Documents/Data%20
   - `league-v4`: Extracted the top 300 NA Challenger players in Ranked Solo/Duo (`RANKED_SOLO_5x5`).
   - `match-v5`: Extracted the 100 most recent match IDs per player via PUUID routing across the Americas region.
   - `match-v5 /matches/{matchId}`: Retrieved detailed telemetry and participant metrics for each match.
-- **Resilience & Rate Limiting**:
-  - Implemented a two-tier sliding window rate limiter enforcing Riot's developer limits (20 requests/second and 100 requests/120 seconds).
 - **Processed Datasets Exported**:
   - `top300_players.csv`: Ladder rank, League Points (LP), wins, losses, win rate, hot streak, and Riot ID.
   - `player_matches.csv`: 30,000 player-match observations containing kills, deaths, assists, damage dealt to champions and objectives, vision scores, gold per minute, CS per minute, turret kills, and remake flags.
@@ -73,7 +71,7 @@ Implemented in [01_data_collection.ipynb](file:///c:/Users/Ben/Documents/Data%20
 Implemented in [02_eda.ipynb](file:///c:/Users/Ben/Documents/Data%20Science%20Projects/Study-of-NA-s-top-100-LoL-players/notebooks/02_eda.ipynb):
 
 - **Data Dragon Champion Tagging**:
-  - Dynamically fetched champion metadata from Riot's Data Dragon endpoint to assign primary classes (`Fighter`, `Mage`, `Marksman`, `Assassin`, `Tank`, `Support`).
+  - Fetched champion metadata from Riot's Data Dragon endpoint to assign primary classes (`Fighter`, `Mage`, `Marksman`, `Assassin`, `Tank`, `Support`).
 - **Remake & Missing Value Handling**:
   - Identified and removed 281 early remake games.
 - **Core Hypotheses Examined**:
@@ -91,9 +89,7 @@ Implemented in [03_modelling.ipynb](file:///c:/Users/Ben/Documents/Data%20Scienc
 
 - **Target vs. Feature Visualizations**:
   - Analyzed feature densities comparing wins and losses via translucent histograms overlaid with Kernel Density Estimation (KDE) curves.
-  - Evaluated categorical win/loss proportions for `primary_class` and `firstBloodKill`.
 - **Validation Strategy & Evaluation Metrics**:
-  - **5-Fold Cross-Validation** applied across all models.
   - Hyperparameter tuning and model selection determined by **ROC-AUC** on out-of-fold probability estimates.
   - Metrics tracked across all folds: **ROC-AUC**, **Accuracy** (threshold 0.5), **Precision**, and **Recall**.
 - **Model Interpretability**:
