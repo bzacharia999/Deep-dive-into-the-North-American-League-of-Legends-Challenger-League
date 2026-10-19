@@ -114,9 +114,9 @@ All models were evaluated under identical 5-fold cross-validation splits. Summar
 
 | Model Architecture | Hyperparameters | 5-Fold ROC-AUC | Accuracy | Precision | Recall |
 |---|---|---|---|---|---|
-| **Logistic Regression** | $\lambda^* \approx 0.0464$ ($C \approx 21.5$) | ~0.90 – 0.91 | ~82 – 83% | ~82 – 84% | ~81 – 83% |
-| **Random Forest** | `max_depth` = 10 – 14 | ~0.92 – 0.93 | ~84 – 85% | ~84 – 86% | ~83 – 85% |
-| **XGBoost** | `max_depth` = 5 – 7 | **~0.93 – 0.94** | **~85 – 86%** | **~85 – 86%** | **~84 – 86%** |
+| **Logistic Regression** | $\lambda^*=1$ | ~0.8738 | ~79.46% | ~82.51% | ~79.44% |
+| **Random Forest** | `max_depth` = None | ~0.9022 | ~81.85% | ~82.67% | ~84.70% |
+| **XGBoost** | `max_depth` = 9 | **~0.9115** | **~82.84%** | **~83.61%** | **~85.49%** |
 
 *Note: Exact figures vary marginally depending on random seed and fold partitioning. XGBoost consistently delivers the highest ROC-AUC.*
 
