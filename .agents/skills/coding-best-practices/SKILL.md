@@ -10,26 +10,18 @@ description: >-
 # Coding Best Practices
 
 ## Core Principles
-1. **DRY / reusable functions** – if code is written twice, make it a function in `src/`. Notebooks import from `src/`, they don't define core logic.
-2. **Small, single-purpose functions** with type hints and a one-line docstring.
-3. **Fail loudly, recover deliberately** – catch *specific* exceptions, log them, never bare `except:` or silent `pass`.
-4. **No secrets in code** – load the API key from `.env`; `.env` is git-ignored.
-5. **Constants at the top** (UPPER_CASE), no magic numbers/strings scattered around.
-6. **Use `logging`, not `print`**, in `src/` modules.
-7. **Cache raw API responses** to disk so reruns don't re-spend rate limit.
-8. **PEP 8** naming (`snake_case` functions, `PascalCase` classes); format with `black`/`ruff`.
-9. **Inspect environment and console first** – look at the current environment and prints to the console before suggesting any console log checks.
+1. **Fail loudly, recover deliberately** – catch *specific* exceptions, log them, never bare `except:` or silent `pass`.
+2. **No secrets in code** – load the API key from `.env`; `.env` is git-ignored.
+3. **Constants at the top** (UPPER_CASE), no magic numbers/strings scattered around.
+4. **Use `logging`, not `print`**, in `src/` modules.
+5. **Cache raw API responses** to disk so reruns don't re-spend rate limit.
+6. **Inspect environment and console first** – look at the current environment and prints to the console before suggesting any console log checks.
 
 ## Suggested Layout
 ```text
 src/
-  config.py      # constants, paths, env loading
   riot_api.py    # rate-limited client (below)
-  collect.py     # pull top-100 players + matches
-  features.py    # cleaning / feature engineering
-  viz.py         # see data-visualization skill
-  model.py       # see ml-modeling skill
-data/raw/  data/processed/  figures/  notebooks/
+data/raw/  data/processed/  notebooks/
 ```
 
 ## Config & Secrets
