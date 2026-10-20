@@ -96,10 +96,10 @@ Implemented in [03_modelling.ipynb](file:///c:/Users/Ben/Documents/Data%20Scienc
   - Extracted standardized log-odds coefficients for Logistic Regression.
   - Generated side-by-side feature importance bar charts (Gini Impurity for Random Forest, Gain for XGBoost).
 
-| /// | /// |
-| :---: | :---: |
-| <img src="assets/img/modelling.png" width="100%" /> | <img src="assets/img/feature importance.png" width="100%" /> |
----
+<p align="center">
+  <img src="assets/img/modelling.png" alt="Modelling Results" width="400%" />
+  <img src="assets/img/feature importance.png" alt="Feature Importance" width="400%" />
+</p>
 
 ## Key Insights & Findings
 
