@@ -82,7 +82,9 @@ Implemented in [02_eda.ipynb](file:///c:/Users/Ben/Documents/Data%20Science%20Pr
   - *Time-of-Day Effect*: Hourly win rates and average deaths remain consistent across all 24 hours of the day in the challenger league
   - *Linear Correlations with Win*: Correlation matrix analysis highlighted `kd_ratio`, `damageDealtToObjectives`, `turretKills`, and `gold_per_min` as the strongest linear predictors of match victory.
 
-<img src="assets/img/EDA.png" alt="EDA Screenshot" width="700" />
+<p align="center">
+  <img src="assets/img/EDA.png" alt="EDA Results" width="400%" />
+</p>
 
 ### 3. Predictive Modelling
 Implemented in [03_modelling.ipynb](file:///c:/Users/Ben/Documents/Data%20Science%20Projects/Study-of-NA-s-top-100-LoL-players/notebooks/03_modelling.ipynb):
